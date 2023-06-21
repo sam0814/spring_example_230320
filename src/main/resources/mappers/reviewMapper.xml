@@ -8,7 +8,7 @@
 	 		`id`
 			,`storeId`
 			,`menu`
-			,`username`
+			,`userName`
 			,`point`
 			,`review`
 			,`createdAt`
@@ -18,4 +18,66 @@
 		WHERE
 			`id` = #{id}
  	</select>
+ 	
+ 	<insert id="insertReview" parameterType="com.example.lesson03.domain.Review">
+ 		INSERT INTO `new_review`
+ 		(
+ 			`storeId`
+			,`menu`
+			,`username`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{storeId}
+ 			, #{menu}
+ 			, #{username}
+ 			, #{point}
+ 			, #{review}
+ 			, NOW()
+ 			, NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertReviewAsField" parameterType="map">
+ 		INSERT INTO `new_review`
+ 		(
+ 			`storeId`
+			,`menu`
+			,`username`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{storeId}
+ 			, #{menu}
+ 			, #{username}
+ 			, #{point}
+ 			, #{review}
+ 			, NOW()
+ 			, NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<delete id="deleteReviewById" parameterType="int">
+ 		DELETE
+ 		FROM
+ 			`new_review`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
+ 	
+ 	<delete id="deleteReviewById_1" parameterType="int">
+ 		DELETE
+ 		FROM
+			`new_review`
+		WHERE
+			`id` = #{id}
+ 	</delete>
  </mapper>

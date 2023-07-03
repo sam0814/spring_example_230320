@@ -49,4 +49,5 @@ public class Lesson04Ex01Controller {
 		// 결과 페이지
 		return "lesson04/getLatestUser";
 	}
+
 }

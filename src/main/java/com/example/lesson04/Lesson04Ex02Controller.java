@@ -17,29 +17,26 @@ public class Lesson04Ex02Controller {
 	
 	@Autowired
 	private StudentBO studentBO;
-	
+
 	// 학생 추가하는 페이지
 	@GetMapping("/add_student_view")
 	public String addStudentView() {
 		return "lesson04/addStudent";
 	}
 	
-	//학생 추가 => 방금 가입된 학생 정보 페이지
-	@PostMapping("/add_studnet")
+	// 학생 추가 => 방금 가입된 학생 정보 페이지
+	@PostMapping("/add_student")
 	public String addStudent(
 			@ModelAttribute Student student, // jsp name 속성명과 필드명이 일치하는 곳에 세팅된다.
 			Model model) {
 		
 		// insert db
-		studentBO.addStudent(student); //방금 인서트 된 id가 student 객체에 세팅된다.
-		//student.getId();
+		studentBO.addStudent(student); // 방금 인서트 된 id가 student 객체에 세팅된다.
 		
 		// select db
 		Student latestStudent = studentBO.getStudentById(student.getId());
 		model.addAttribute("result", latestStudent);
 		
 		return "lesson04/afterAddStudent";
-			
-		}
 	}
-	
+}

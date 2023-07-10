@@ -11,7 +11,6 @@ public class Student {
 	private String dreamJod;
 	private Date createdAt;
 	private Date upDatedAt;
-	
 	public int getId() {
 		return id;
 	}
@@ -54,6 +53,7 @@ public class Student {
 	public void setUpDatedAt(Date upDatedAt) {
 		this.upDatedAt = upDatedAt;
 	}
+	
 	
 	
 }
